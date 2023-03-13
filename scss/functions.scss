@@ -1,0 +1,82 @@
+/*
+div.bkn-staff-grid
+    div.bkn-staff
+        picture
+            img.bkn-staff-picture
+        .bkn-staff-link
+            a
+*/
+
+.bkn-staff-grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+
+    .bkn-staff {
+        width: 25%;
+
+        @media (max-width: 1280px) {
+            width: 50%;
+            margin-bottom: 2em;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+
+        picture {
+            display: block;
+            position: relative;
+            width: 98%;
+            max-width: 300px;
+            margin: 0 auto 5px;
+        }
+
+        picture::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .bkn-staff-picture {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+            box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.7);
+            border: 1px solid #1a1a1a;
+            border-radius: 50%;
+        }
+
+        .bkn-staff-link a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 1rem 0;
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+
+            &:link, &:visited {
+                color: #555;
+            }
+
+            &:hover, &:active {
+                color: #000;
+            }
+
+            &:before {
+                content: "\f099";
+                //noinspection CssNoGenericFontName
+                font-family: "Font Awesome 6 Brands";
+                padding-right: 0.5em;
+            }
+        }
+    }
+}

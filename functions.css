@@ -1,0 +1,62 @@
+/*
+div.bkn-staff-grid
+    div.bkn-staff
+        picture
+            img.bkn-staff-picture
+        .bkn-staff-link
+            a
+*/
+.bkn-staff-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto; }
+  @media (max-width: 768px) {
+    .bkn-staff-grid {
+      display: block; } }
+  .bkn-staff-grid .bkn-staff {
+    width: 25%; }
+    @media (max-width: 1280px) {
+      .bkn-staff-grid .bkn-staff {
+        width: 50%;
+        margin-bottom: 2em; } }
+    @media (max-width: 768px) {
+      .bkn-staff-grid .bkn-staff {
+        width: 100%; } }
+    .bkn-staff-grid .bkn-staff picture {
+      display: block;
+      position: relative;
+      width: 98%;
+      max-width: 300px;
+      margin: 0 auto 5px; }
+    .bkn-staff-grid .bkn-staff picture::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%; }
+    .bkn-staff-grid .bkn-staff .bkn-staff-picture {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.7);
+      border: 1px solid #1a1a1a;
+      border-radius: 50%; }
+    .bkn-staff-grid .bkn-staff .bkn-staff-link a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 1rem 0;
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden; }
+      .bkn-staff-grid .bkn-staff .bkn-staff-link a:link, .bkn-staff-grid .bkn-staff .bkn-staff-link a:visited {
+        color: #555; }
+      .bkn-staff-grid .bkn-staff .bkn-staff-link a:hover, .bkn-staff-grid .bkn-staff .bkn-staff-link a:active {
+        color: #000; }
+      .bkn-staff-grid .bkn-staff .bkn-staff-link a:before {
+        content: "\f099";
+        font-family: "Font Awesome 6 Brands";
+        padding-right: 0.5em; }
+
+/*# sourceMappingURL=functions.css.map */
