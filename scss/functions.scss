@@ -10,6 +10,8 @@ div.bkn-staff-grid
 .bkn-staff-grid {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
     max-width: 1400px;
     margin: 0 auto;
 
@@ -69,13 +71,6 @@ div.bkn-staff-grid
 
             &:hover, &:active {
                 color: #000;
-            }
-
-            &:before {
-                content: "\f099";
-                //noinspection CssNoGenericFontName
-                font-family: "Font Awesome 6 Brands";
-                padding-right: 0.5em;
             }
         }
     }

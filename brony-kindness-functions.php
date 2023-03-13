@@ -9,13 +9,13 @@ Plugin URI: https://github.com/KindnessNetwork/brony-kindness-functions
 Author: Brony Kindness Network, LinuxPony
 Author URI: https://bronykindness.net/
 Description: WordPress Plugin with miscellanies functions and shortcodes used by the Brony Kindness Network.
-Version: 0.1.0
+Version: 0.1.1
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: bkn
 */
 
-define('BKN_PLUGIN_VER', '0.1.0');
+define('BKN_PLUGIN_VER', '0.1.1');
 
 class Bkn_Functions {
     public static function init() {
@@ -63,9 +63,12 @@ class Bkn_Functions {
             if(empty($image)) {
                 $image = $default_image;
             }
+
+            $link_url = $post_meta['_mp2_F7'][0] ?? "#";
+            $link_icon = ($post_meta['_mp1_F7'][0] ?? "fas fa-globe") . ' fa-fw';
+
             /** @noinspection HtmlUnknownTarget */
-            $link = sprintf('<div class="bkn-staff-link"><a href="%s">%s</a></div>',
-                $post_meta['_icon2Url_F5'][0], $post_meta['_mp1_F1'][0]);
+            $link = sprintf('<div class="bkn-staff-link"><a href="%s"><i class="%s"></i> %s</a></div>', $link_url, $link_icon, $post_meta['_mp1_F1'][0]);
             $items .= sprintf('<div class="bkn-staff">%s</div>',$image . $link);
         }
 

@@ -9,6 +9,8 @@ div.bkn-staff-grid
 .bkn-staff-grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
   max-width: 1400px;
   margin: 0 auto; }
   @media (max-width: 768px) {
@@ -54,9 +56,5 @@ div.bkn-staff-grid
         color: #555; }
       .bkn-staff-grid .bkn-staff .bkn-staff-link a:hover, .bkn-staff-grid .bkn-staff .bkn-staff-link a:active {
         color: #000; }
-      .bkn-staff-grid .bkn-staff .bkn-staff-link a:before {
-        content: "\f099";
-        font-family: "Font Awesome 6 Brands";
-        padding-right: 0.5em; }
 
 /*# sourceMappingURL=functions.css.map */
