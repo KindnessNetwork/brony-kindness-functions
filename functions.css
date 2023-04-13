@@ -25,13 +25,13 @@ div.bkn-staff-grid
     @media (max-width: 768px) {
       .bkn-staff-grid .bkn-staff {
         width: 100%; } }
-    .bkn-staff-grid .bkn-staff picture {
+    .bkn-staff-grid .bkn-staff .bkn-staff-picture-wrapper {
       display: block;
       position: relative;
       width: 98%;
       max-width: 300px;
       margin: 0 auto 5px; }
-    .bkn-staff-grid .bkn-staff picture::after {
+    .bkn-staff-grid .bkn-staff .bkn-staff-picture-wrapper::after {
       content: "";
       display: block;
       padding-bottom: 100%; }

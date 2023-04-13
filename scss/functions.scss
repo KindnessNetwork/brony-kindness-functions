@@ -31,7 +31,7 @@ div.bkn-staff-grid
             width: 100%;
         }
 
-        picture {
+        .bkn-staff-picture-wrapper {
             display: block;
             position: relative;
             width: 98%;
@@ -39,7 +39,7 @@ div.bkn-staff-grid
             margin: 0 auto 5px;
         }
 
-        picture::after {
+        .bkn-staff-picture-wrapper::after {
             content: "";
             display: block;
             padding-bottom: 100%;
