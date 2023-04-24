@@ -15,7 +15,7 @@ License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: bkn
 */
 
-define('BKN_PLUGIN_VER', '0.1.2');
+define('BKN_PLUGIN_VER', '0.1.3');
 
 class Bkn_Functions {
     public static function init() {

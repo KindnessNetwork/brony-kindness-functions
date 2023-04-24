@@ -50,7 +50,6 @@ div.bkn-staff-grid
       text-decoration: none;
       padding: 1rem 0;
       font-size: 2rem;
-      white-space: nowrap;
       overflow: hidden; }
       .bkn-staff-grid .bkn-staff .bkn-staff-link a:link, .bkn-staff-grid .bkn-staff .bkn-staff-link a:visited {
         color: #555; }
