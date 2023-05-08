@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Brony_Kindness_Functions
- * @version 0.2.0
+ * @version 0.3.0
  * @noinspection PhpIllegalPsrClassPathInspection, PhpMissingParamTypeInspection
  */
 /*
@@ -10,13 +10,13 @@ Plugin URI: https://github.com/KindnessNetwork/brony-kindness-functions
 Author: Brony Kindness Network, LinuxPony
 Author URI: https://bronykindness.net/
 Description: WordPress Plugin with miscellanies functions and shortcodes used by the Brony Kindness Network.
-Version: 0.2.0
+Version: 0.3.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: bkn
 */
 
-define('BKN_PLUGIN_VER', '0.2.0');
+define('BKN_PLUGIN_VER', '0.3.0');
 define('BKN_PLUGIN_SLUG', 'bkn');
 
 class Bkn_Functions {
@@ -44,6 +44,8 @@ class Bkn_Functions {
         add_shortcode('bkn-staff-image-grid', [static::class, 'render_staff_image_grid']);
         add_action('init', [static::class, 'register_includes']);
 
+        //Automatically complete orders in WooCommerce
+        add_action('woocommerce_thankyou', array(static::class, 'wpd_autocomplete_virtual_orders'), 10, 1 );
     }
 
     /**
@@ -228,6 +230,55 @@ class Bkn_Functions {
         print "<p>Nothing here yet</p>";
 //        static::check_orders_and_maybe_send_emails();
         print '</div>';
+    }
+
+    /**
+     * @link       https://wpdavies.dev/
+     * @link       https://wpdavies.dev/automatically-complete-virtual-orders-woocommerce/
+     * @snippet    Automatically complete orders in WooCommerce
+     * @author     Christopher Davies, WP Davies
+     *
+     * @param $order_id int order ID
+     */
+    function wpd_autocomplete_virtual_orders($order_id) {
+
+        if(!$order_id) return;
+
+        // Get order
+        $order = wc_get_order($order_id);
+
+        // Do not auto-complete orders marked as On Hold, as those require
+        // manual review to confirm payment
+        if ($order->status == 'on-hold') {
+            return;
+        }
+        // get order items = each product in the order
+        $items = $order->get_items();
+
+        // Set variable
+        $only_virtual = true;
+
+        foreach ($items as $item) {
+
+            // Get product id
+            $product = wc_get_product($item['product_id']);
+
+            // Is virtual
+            $is_virtual = $product->is_virtual();
+
+            // Is_downloadable
+            $is_downloadable = $product->is_downloadable();
+
+            if (!$is_virtual && !$is_downloadable) {
+                $only_virtual = false;
+            }
+
+        }
+
+        // true
+        if ($only_virtual) {
+            $order->update_status('completed');
+        }
     }
 }
 

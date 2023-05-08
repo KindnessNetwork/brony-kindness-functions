@@ -22,6 +22,11 @@ Hold orders. If the payment type is direct bank transfer, an email is sent out
 after the first 24 hours, and then every 3 days after that, until the order is
 no longer on hold.
 
+### Automatically complete orders in WooCommerce
+
+Automatically mark orders that only contain virtual/downloadable items as
+complete without merchant interaction.
+
 ## Hard dependencies
 
 These plugins are required to use this plugin.
